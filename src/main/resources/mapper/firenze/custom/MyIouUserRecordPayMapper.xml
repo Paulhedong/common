@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="io.sltstatistic.mapper.firenze.custom.MyIouUserRecordPayMapper">
+  <select id="selectIncomeGroupbyScene" resultType="map">
+      SELECT
+        pay_type as scene,
+        sum(pay_amount)/100 as amount
+      from iou_user_record_pay
+      where pay_status=2
+      group by pay_type;
+  </select>
+</mapper>

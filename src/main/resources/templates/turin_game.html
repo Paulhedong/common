@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>游戏统计</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+    <style>
+        body{
+            padding: 30px 30px;
+        }
+        .panel-heading{
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">1.用户统计</div>
+        <table class="table" style="text-align: center;">
+            <tr>
+                <td>总注册数：</td>
+                <td th:text="${totalUserCount}"></td>
+            </tr>
+            <tr>
+                <td>当日注册数：</td>
+                <td th:text="${todayRegist}"></td>
+            </tr>
+            <tr>
+                <td>当日活跃数：</td>
+                <td th:text="${todayActive}"></td>
+            </tr> <tr>
+                <td>总产蜜数：</td>
+                <td th:text="${totalHoneyCount}"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">2.持蜜排名</div>
+        <table class="table" style="text-align: center;">
+            <thead style="font-weight:bold">
+            <tr>
+                <td>昵称</td>
+                <td>蜂蜜数</td>
+            </tr>
+            </thead>
+            <tr th:each="data:${honeyRank}">
+                <td th:text="${data.loginName}"></td>
+                <td th:text="${data.honey}"></td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+</html>

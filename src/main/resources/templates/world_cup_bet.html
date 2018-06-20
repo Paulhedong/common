@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>世界杯活动统计</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+    <style>
+        body{
+            padding: 30px 30px;
+        }
+        .panel-heading{
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">1.投注总量</div>
+        <table class="table" style="text-align: center;">
+                <tr th:each="data:${betCount}">
+                    <td th:text="${data.key}"></td>
+                    <td th:text="${data.value}"></td>
+                </tr>
+        </table>
+    </div>
+
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">2.投注排名</div>
+        <table class="table" style="text-align: center;">
+            <thead style="font-weight:bold">
+                <tr>
+                    <td>国家</td>
+                    <td>honey数量</td>
+                </tr>
+            </thead>
+            <tr th:each="data:${countryRank}">
+                <td th:text="${data.name}"></td>
+                <td th:text="${data.betCount}"></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

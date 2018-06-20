@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>游戏统计</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+    <style>
+        body{
+            padding: 30px 30px;
+        }
+        .panel-heading{
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">1.钱包和用户总量</div>
+        <table class="table" style="text-align: center;">
+            <tr>
+                <td>开通用户总数</td>
+                <td th:text="${totalWalletUser}"></td>
+            </tr>
+            <tr>
+                <td>钱包总数</td>
+                <td th:text="${totalWallet}"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">2.每日新增钱包数统计(近30天)</div>
+        <table class="table" style="text-align: center;">
+            <thead style="font-weight:bold">
+                <tr>
+                    <td>日期</td>
+                    <td>增加数量</td>
+                </tr>
+            </thead>
+            <tr th:each="data:${walletList}">
+                <td th:text="${data.thedate}"></td>
+                <td th:text="${data.walletcount}"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">3.存有不同币种的钱包数统计</div>
+        <table class="table" style="text-align: center;">
+            <thead style="font-weight:bold">
+                <tr>
+                    <td>id</td>
+                    <td>币种</td>
+                    <td>钱包数量</td>
+                </tr>
+            </thead>
+            <tr th:each="data:${tokenWallent}">
+                <td th:text="${data.id}"></td>
+                <td th:text="${data.token}"></td>
+                <td th:text="${data.count}"></td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="io.sltstatistic.mapper.firenze.extra.IouUserExtraMapper">
+
+    <update id="updateSltAmount">
+        UPDATE iou_user
+          SET slt_amount = slt_amount+ #{sltAmount}
+          WHERE user_id = #{userId}
+    </update>
+
+    <select id="sumSltAmount" resultType="java.math.BigDecimal">
+        SELECT sum(amount) FROM `iou_user_record_award` where user_id=#{userId};
+    </select>
+
+</mapper>

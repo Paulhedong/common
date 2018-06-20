@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>借条统计</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+    <style>
+        body{
+            padding: 30px 30px;
+        }
+        .panel-heading{
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">1.实名人数</div>
+        <table class="table" style="text-align: center;">
+            <tr>
+                <td th:text="${realName}"></td>
+            </tr>
+        </table>
+    </div>
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">2.不同状态借条数量统计---(借条总数:<span th:text="${totalIou}" style="color: red"></span>)</div>
+        <table class="table" style="text-align: center;">
+            <tr th:each="data:${iouStatus}">
+                <td th:text="${data.status}"></td>
+                <td th:text="${data.number}"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">3.申诉借条数量统计</div>
+        <table class="table" style="text-align: center;">
+            <tr th:each="data:${appealStatus}">
+                <td th:text="${data.status}"></td>
+                <td th:text="${data.number}"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">4.不同场景slt数量统计</div>
+        <table class="table" style="text-align: center;">
+            <tr th:each="data:${sltNum}">
+                <td th:text="${data.scene}"></td>
+                <td th:text="${data.amount}"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">5.持有slt排名前30用户----(slt分发总量：<span th:text="${sltTotalCount}" style="color: red"></span>)</div>
+        <table class="table" style="text-align: center;">
+            <thead style="font-weight:bold">
+            <tr>
+                <td>姓名</td>
+                <td>手机号</td>
+                <td>持有数量</td>
+            </tr>
+            </thead>
+            <tr th:each="data:${top30User}">
+                <td th:text="${data.idcardName}"></td>
+                <td th:text="${data.phone}"></td>
+                <td th:text="${data.sltAmount}"></td>
+            </tr>
+        </table>
+    </div>
+
+
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">6.不同场景实际收入(<span th:text="${totalAmount}" style="color: red"></span>元)</div>
+        <table class="table" style="text-align: center;">
+            <tr th:each="data:${income}">
+                <td th:text="${data.scene}"></td>
+                <td th:text="${data.amount}"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>
