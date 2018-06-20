@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="io.sltstatistic.mapper.firenze.custom.MyIouMapper">
+<mapper namespace="com.hedong.mapper.firenze.custom.MyIouMapper">
     <select id="selectIouNumGroupByStatus" resultType="map">
       SELECT status, count(id) as number from iou GROUP BY `status`;
     </select>

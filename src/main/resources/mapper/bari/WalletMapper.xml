@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="io.sltstatistic.mapper.bari.WalletMapper">
-  <resultMap id="BaseResultMap" type="io.sltstatistic.model.bari.Wallet">
+<mapper namespace="com.hedong.mapper.bari.WalletMapper">
+  <resultMap id="BaseResultMap" type="com.hedong.model.bari.Wallet">
     <constructor>
       <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="logo" javaType="java.lang.String" jdbcType="VARCHAR" />
@@ -76,7 +76,7 @@
   <sql id="Base_Column_List">
     id, logo, name, eth_address, user_phone, v3_json, ctime, utime, status, iban
   </sql>
-  <select id="selectByExample" parameterType="io.sltstatistic.model.bari.WalletExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.hedong.model.bari.WalletExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -100,13 +100,13 @@
     delete from wallet
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="io.sltstatistic.model.bari.WalletExample">
+  <delete id="deleteByExample" parameterType="com.hedong.model.bari.WalletExample">
     delete from wallet
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="io.sltstatistic.model.bari.Wallet">
+  <insert id="insert" parameterType="com.hedong.model.bari.Wallet">
     insert into wallet (id, logo, name, 
       eth_address, user_phone, v3_json, 
       ctime, utime, status, 
@@ -116,7 +116,7 @@
       #{ctime,jdbcType=TIMESTAMP}, #{utime,jdbcType=TIMESTAMP}, #{status,jdbcType=TINYINT}, 
       #{iban,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="io.sltstatistic.model.bari.Wallet">
+  <insert id="insertSelective" parameterType="com.hedong.model.bari.Wallet">
     insert into wallet
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -183,7 +183,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="io.sltstatistic.model.bari.WalletExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.hedong.model.bari.WalletExample" resultType="java.lang.Long">
     select count(*) from wallet
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -243,7 +243,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="io.sltstatistic.model.bari.Wallet">
+  <update id="updateByPrimaryKeySelective" parameterType="com.hedong.model.bari.Wallet">
     update wallet
     <set>
       <if test="logo != null">
@@ -276,7 +276,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="io.sltstatistic.model.bari.Wallet">
+  <update id="updateByPrimaryKey" parameterType="com.hedong.model.bari.Wallet">
     update wallet
     set logo = #{logo,jdbcType=VARCHAR},
       name = #{name,jdbcType=VARCHAR},

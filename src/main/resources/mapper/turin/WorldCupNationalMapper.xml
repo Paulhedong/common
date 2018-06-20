@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="io.sltstatistic.mapper.turin.WorldCupNationalMapper">
-  <resultMap id="BaseResultMap" type="io.sltstatistic.model.turin.WorldCupNational">
+<mapper namespace="com.hedong.mapper.turin.WorldCupNationalMapper">
+  <resultMap id="BaseResultMap" type="com.hedong.model.turin.WorldCupNational">
     <constructor>
       <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="ctime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
@@ -77,7 +77,7 @@
     id, ctime, utime, national_id, name, english_name, national_flag, champion_odds, 
     status, remark
   </sql>
-  <select id="selectByExample" parameterType="io.sltstatistic.model.turin.WorldCupNationalExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.hedong.model.turin.WorldCupNationalExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -101,13 +101,13 @@
     delete from world_cup_national
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="io.sltstatistic.model.turin.WorldCupNationalExample">
+  <delete id="deleteByExample" parameterType="com.hedong.model.turin.WorldCupNationalExample">
     delete from world_cup_national
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="io.sltstatistic.model.turin.WorldCupNational">
+  <insert id="insert" parameterType="com.hedong.model.turin.WorldCupNational">
     insert into world_cup_national (id, ctime, utime, 
       national_id, name, english_name, 
       national_flag, champion_odds, status, 
@@ -117,7 +117,7 @@
       #{nationalFlag,jdbcType=VARCHAR}, #{championOdds,jdbcType=DECIMAL}, #{status,jdbcType=TINYINT}, 
       #{remark,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="io.sltstatistic.model.turin.WorldCupNational">
+  <insert id="insertSelective" parameterType="com.hedong.model.turin.WorldCupNational">
     insert into world_cup_national
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -184,7 +184,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="io.sltstatistic.model.turin.WorldCupNationalExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.hedong.model.turin.WorldCupNationalExample" resultType="java.lang.Long">
     select count(*) from world_cup_national
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -244,7 +244,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="io.sltstatistic.model.turin.WorldCupNational">
+  <update id="updateByPrimaryKeySelective" parameterType="com.hedong.model.turin.WorldCupNational">
     update world_cup_national
     <set>
       <if test="ctime != null">
@@ -277,7 +277,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="io.sltstatistic.model.turin.WorldCupNational">
+  <update id="updateByPrimaryKey" parameterType="com.hedong.model.turin.WorldCupNational">
     update world_cup_national
     set ctime = #{ctime,jdbcType=TIMESTAMP},
       utime = #{utime,jdbcType=TIMESTAMP},

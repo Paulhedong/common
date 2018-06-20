@@ -62,7 +62,7 @@ spring:
     cache: false
 mybatis:
   mapper-locations: classpath:mapper/**/*Mapper.xml
-  type-aliases-package: io.sltstatistic.model.*
+  type-aliases-package: io.hedong.model.*
 
 pagehelper:
   helperDialect: mysql
@@ -74,7 +74,7 @@ logging:
     io.sltstatistic.mapper: debug
 #mapper:
 #    mappers:
-#        - io.sltstatistic.mapper.*.*
+#        - io.hedong.mapper.*.*
 #    not-empty: false
 #    identity: MYSQL
 ---
@@ -129,7 +129,7 @@ spring:
     cache: false
 mybatis:
   mapper-locations: mapper/**/*Mapper.xml
-  type-aliases-package: io.sltstatistic.model.*
+  type-aliases-package: io.hedong.model.*
 
 pagehelper:
   helperDialect: mysql

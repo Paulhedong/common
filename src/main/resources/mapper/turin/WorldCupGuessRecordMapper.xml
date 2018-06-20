@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="io.sltstatistic.mapper.turin.WorldCupGuessRecordMapper">
-  <resultMap id="BaseResultMap" type="io.sltstatistic.model.turin.WorldCupGuessRecord">
+<mapper namespace="com.hedong.mapper.turin.WorldCupGuessRecordMapper">
+  <resultMap id="BaseResultMap" type="com.hedong.model.turin.WorldCupGuessRecord">
     <constructor>
       <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="ctime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
@@ -75,7 +75,7 @@
   <sql id="Base_Column_List">
     id, ctime, utime, user_id, game_id, national_id, guess_number, odds, status
   </sql>
-  <select id="selectByExample" parameterType="io.sltstatistic.model.turin.WorldCupGuessRecordExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.hedong.model.turin.WorldCupGuessRecordExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -99,13 +99,13 @@
     delete from world_cup_guess_record
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="io.sltstatistic.model.turin.WorldCupGuessRecordExample">
+  <delete id="deleteByExample" parameterType="com.hedong.model.turin.WorldCupGuessRecordExample">
     delete from world_cup_guess_record
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="io.sltstatistic.model.turin.WorldCupGuessRecord">
+  <insert id="insert" parameterType="com.hedong.model.turin.WorldCupGuessRecord">
     insert into world_cup_guess_record (id, ctime, utime, 
       user_id, game_id, national_id, 
       guess_number, odds, status
@@ -115,7 +115,7 @@
       #{guessNumber,jdbcType=INTEGER}, #{odds,jdbcType=DECIMAL}, #{status,jdbcType=TINYINT}
       )
   </insert>
-  <insert id="insertSelective" parameterType="io.sltstatistic.model.turin.WorldCupGuessRecord">
+  <insert id="insertSelective" parameterType="com.hedong.model.turin.WorldCupGuessRecord">
     insert into world_cup_guess_record
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -176,7 +176,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="io.sltstatistic.model.turin.WorldCupGuessRecordExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.hedong.model.turin.WorldCupGuessRecordExample" resultType="java.lang.Long">
     select count(*) from world_cup_guess_record
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -232,7 +232,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="io.sltstatistic.model.turin.WorldCupGuessRecord">
+  <update id="updateByPrimaryKeySelective" parameterType="com.hedong.model.turin.WorldCupGuessRecord">
     update world_cup_guess_record
     <set>
       <if test="ctime != null">
@@ -262,7 +262,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="io.sltstatistic.model.turin.WorldCupGuessRecord">
+  <update id="updateByPrimaryKey" parameterType="com.hedong.model.turin.WorldCupGuessRecord">
     update world_cup_guess_record
     set ctime = #{ctime,jdbcType=TIMESTAMP},
       utime = #{utime,jdbcType=TIMESTAMP},
