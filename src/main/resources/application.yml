@@ -5,7 +5,7 @@ spring:
 ---
 server:
   port: 8083
-  context-path: /calabria
+  context-path: /common
 
 spring:
   profiles: test
@@ -62,7 +62,7 @@ spring:
     cache: false
 mybatis:
   mapper-locations: classpath:mapper/**/*Mapper.xml
-  type-aliases-package: io.hedong.model.*
+  type-aliases-package: com.hedong.model.*
 
 pagehelper:
   helperDialect: mysql
@@ -71,72 +71,6 @@ pagehelper:
   params: count=countSql
 logging:
   level:
-    io.sltstatistic.mapper: debug
-#mapper:
-#    mappers:
-#        - io.hedong.mapper.*.*
-#    not-empty: false
-#    identity: MYSQL
----
-server:
-  port: 8083
-  context-path: /calabria
+    com.sltstatistic.mapper: debug
 
-spring:
-  profiles: prod
-  datasource:
-    firenze:
-      url: jdbc:mysql://192.168.80.220:5506/firenze?useUnicode=true&characterEncoding=utf8
-      driver-class-name: com.mysql.jdbc.Driver
-      username: jietiao_rw
-      password: guLcexzmnXp937jm
-      max-idle: 10
-      max-wait: 10000
-      min-idle: 5
-      initial-size: 5
-      validation-query: SELECT 1
-      test-on-borrow: false
-      test-while-idle: true
-      time-between-eviction-runs-millis: 18800
-    turin:
-      url: jdbc:mysql://192.168.80.220:5506/turin?useUnicode=true&characterEncoding=utf8
-      driver-classpanda-name: com.mysql.jdbc.Driver
-      username: fengchao_rw
-      password: zVLzkP6jEWTUfNDk
-      max-idle: 10
-      max-wait: 10000
-      min-idle: 5
-      initial-size: 5
-      validation-query: SELECT 1
-      test-on-borrow: false
-      test-while-idle: true
-      time-between-eviction-runs-millis: 18800
-    bari:
-      url: jdbc:mysql://192.168.80.220:5506/bari?useUnicode=true&characterEncoding=utf8
-      driver-class-name: com.mysql.jdbc.Driver
-      username: qianbao_rw
-      password: 6V2ESdJxS6sopL3W
-      max-idle: 10
-      max-wait: 10000
-      min-idle: 5
-      initial-size: 5
-      validation-query: SELECT 1
-      test-on-borrow: false
-      test-while-idle: true
-      time-between-eviction-runs-millis: 18800
-    initialize: false
-  thymeleaf:
-    cache: false
-mybatis:
-  mapper-locations: mapper/**/*Mapper.xml
-  type-aliases-package: io.hedong.model.*
-
-pagehelper:
-  helperDialect: mysql
-  reasonable: true
-  supportMethodsArguments: true
-  params: count=countSql
-logging:
-  level:
-    io.sltstatistic.mapper: debug
 

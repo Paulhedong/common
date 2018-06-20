@@ -7,7 +7,6 @@ import com.hedong.mapper.firenze.IouUserMapper;
 import com.hedong.mapper.firenze.custom.MyIouMapper;
 import com.hedong.mapper.firenze.custom.MyIouUserRecordPayMapper;
 import com.hedong.model.firenze.IouUserExample;
-import io.sltstatistic.mapper.firenze.*;
 import com.hedong.mapper.firenze.custom.MyIouUserRecordAwardMapper;
 import com.hedong.model.firenze.IouUser;
 import org.springframework.beans.factory.annotation.Autowired;

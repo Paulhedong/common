@@ -5,8 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan({"io.hedong.mapper.*"})
-//@EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class})
+@MapperScan({"com.hedong.mapper.*"})
 public class BootApplication {
 
 	public static void main(String[] args) {

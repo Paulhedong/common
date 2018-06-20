@@ -4,7 +4,7 @@ buildscript {
 	}
 	repositories {
 		mavenLocal()
-		maven { url "http://maven.zz.com/nexus/content/groups/public/" }
+		maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
 		mavenCentral()
 	}
 	dependencies {
@@ -17,17 +17,22 @@ apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'war'
 
+
+//ext {
+//	springVersion = "4.3.9.RELEASE"
+//	springBootVersion = "1.5.9.RELEASE"
+//}
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 compileJava.options.encoding = 'UTF-8'
 
 war {
-	archiveName = "calabria.war"
+	archiveName = "common.war"
 }
 
 repositories {
 	mavenLocal()
-	maven { url "http://maven.zz.com/nexus/content/groups/public/" }
+	maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
 	mavenCentral()
 }
 
@@ -44,11 +49,21 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-devtools')
 	compile('com.github.pagehelper:pagehelper-spring-boot-starter:1.2.5')
 	compile('org.mybatis.spring.boot:mybatis-spring-boot-starter:1.3.1')
+	compile('org.springframework.boot:spring-boot-starter-aop')
+	//redis
+	compile ('org.springframework.boot:spring-boot-starter-data-redis')
 	runtime('mysql:mysql-connector-java')
 	providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	testCompile('org.springframework.security:spring-security-test')
-	//compile 'com.zaxxer:HikariCP:2.4.1'
+	compile('org.apache.zookeeper:zookeeper:3.4.9'){
+		exclude(module: 'slf4j-log4j12')
+	}
+
+//	compile group: 'org.apache.zookeeper', name: 'zookeeper', version: '3.4.9'{
+//		exclude group: 'org.slf4j',name:'slf4j-log4j12'
+//		exclude group: 'log4j',name:'log4j'
+//	}
 
 }
 
